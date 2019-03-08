@@ -9,7 +9,7 @@ class App extends React.Component<any, {}> {
         <React.Fragment>
           <Switch>
             <Route path="/index" component={Index} />
-            <Route path="/" exact={true} component={Index} />
+            <Route path="/" component={Index} />
           </Switch>
         </React.Fragment>
       </BrowserRouter>

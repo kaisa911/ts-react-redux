@@ -1,6 +1,10 @@
 import * as React from 'react';
 
 class Hello extends React.Component<any, {}> {
+  constructor(props: any) {
+    super(props);
+    this.state = {};
+  }
   public render() {
     return (
       <div>

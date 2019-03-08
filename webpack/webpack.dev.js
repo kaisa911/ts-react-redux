@@ -25,19 +25,10 @@ const config = {
   module: {
     rules: [
       {
-        enforce: 'pre',
         test: /\.(ts?)|(tsx?)$/,
         exclude: /node_modules/,
-        use: [
-          {
-            loader: 'ts-loader',
-            options: {
-              transpileOnly: true
-            }
-          }
-        ]
+        loader: 'awesome-typescript-loader'
       },
-      { test: /\.tsx?$/, loader: 'awesome-typescript-loader' },
       { enforce: 'pre', test: /\.js$/, loader: 'source-map-loader' }
     ]
   },
