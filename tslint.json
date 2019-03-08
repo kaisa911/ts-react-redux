@@ -1,0 +1,12 @@
+{
+  "extends": ["tslint:recommended", "tslint-react", "tslint-eslint-rules", "tslint-config-prettier"],
+  "linterOptions": {
+    "exclude": ["node_modules/**/*.ts"]
+  },
+  "defaultSeverity": "error",
+  "rules": {
+    "no-implicit-dependencies": false,
+    "no-submodule-imports": false,
+    "no-console": false
+  }
+}

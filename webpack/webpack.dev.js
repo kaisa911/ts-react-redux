@@ -2,6 +2,7 @@ const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const packageObj = require('../package.json');
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 
 const publicPath = '/';
 
@@ -23,6 +24,19 @@ const config = {
   },
   module: {
     rules: [
+      {
+        enforce: 'pre',
+        test: /\.(ts?)|(tsx?)$/,
+        exclude: /node_modules/,
+        use: [
+          {
+            loader: 'ts-loader',
+            options: {
+              transpileOnly: true
+            }
+          }
+        ]
+      },
       { test: /\.tsx?$/, loader: 'awesome-typescript-loader' },
       { enforce: 'pre', test: /\.js$/, loader: 'source-map-loader' }
     ]
@@ -52,7 +66,14 @@ const config = {
       inject: true
     }),
     new webpack.NamedModulesPlugin(),
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin(),
+    // 把类型检查和webpack打包分开来
+    new ForkTsCheckerWebpackPlugin({
+      async: false,
+      watch: '../client',
+      tsconfig: path.resolve(__dirname, '../tsconfig.json'),
+      tslint: path.resolve(__dirname, '../tslint.json')
+    })
   ]
 };
 

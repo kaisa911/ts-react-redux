@@ -4,7 +4,7 @@ import App from './route/App';
 
 const root = document.getElementById('bd');
 const render = (Component: any) => {
-  ReactDOM.render(<Component />, root);
+  return ReactDOM.render(<Component />, root);
 };
 
 render(App);

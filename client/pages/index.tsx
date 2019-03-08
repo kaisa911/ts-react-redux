@@ -1,16 +1,6 @@
 import * as React from 'react';
 
-// 'HelloProps' describes the shape of props.
-// State is never set so we use the '{}' type.
-export default class Hello extends React.Component<{}> {
-  constructor(props: object) {
-    super(props);
-    this.state = {};
-  }
-  componentDidMount() {
-    // do somethings
-  }
-
+class Hello extends React.Component<any, {}> {
   public render() {
     return (
       <div>
@@ -20,3 +10,5 @@ export default class Hello extends React.Component<{}> {
     );
   }
 }
+
+export default Hello;
