@@ -4,6 +4,13 @@ import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
 import Index from '../pages/index';
 
 class App extends React.Component<{}> {
+  constructor(props: object) {
+    super(props);
+    this.state = {};
+  }
+  componentDidMount() {
+    // do somethings
+  }
   public render() {
     return (
       <BrowserRouter>

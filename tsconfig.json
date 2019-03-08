@@ -8,5 +8,6 @@
     "target": "es5",
     "jsx": "react"
   },
-  "include": ["./client/**/*"]
+  "include": ["./client/**/*"],
+  "exclude": ["node_modules"]
 }
