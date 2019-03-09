@@ -1,10 +1,18 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
 import App from './route/App';
+import store from './store/index';
 
 const root = document.getElementById('bd');
 const render = (Component: any) => {
-  return ReactDOM.render(<Component />, root);
+  return ReactDOM.render(
+    (
+      <Provider store={store}>
+        <Component />
+      </Provider>
+    ), 
+    root);
 };
 
 render(App);

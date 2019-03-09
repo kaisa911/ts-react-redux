@@ -9,7 +9,7 @@ class Hello extends React.Component<any, {}> {
     return (
       <div>
         <h1>Hello TypeScript!</h1>
-        <div>lalala</div>
+        <div>haha</div>
       </div>
     );
   }

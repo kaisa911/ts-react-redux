@@ -1,6 +1,8 @@
 import * as React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import Demo from '../pages/demo/index';
 import Index from '../pages/index';
+
 
 class App extends React.Component<any, {}> {
   public render() {
@@ -8,7 +10,7 @@ class App extends React.Component<any, {}> {
       <BrowserRouter>
         <React.Fragment>
           <Switch>
-            <Route path="/index" component={Index} />
+            <Route path="/demo" component={Demo} />
             <Route path="/" component={Index} />
           </Switch>
         </React.Fragment>

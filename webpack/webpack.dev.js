@@ -1,3 +1,5 @@
+'use strict';
+
 const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -27,9 +29,25 @@ const config = {
       {
         test: /\.(ts?)|(tsx?)$/,
         exclude: /node_modules/,
-        loader: 'awesome-typescript-loader'
+        loader: 'awesome-typescript-loader',
+        options: {
+          transpileOnly: true
+        }
       },
-      { enforce: 'pre', test: /\.js$/, loader: 'source-map-loader' }
+      { enforce: 'pre', test: /\.js$/, loader: 'source-map-loader' },
+      {
+        test: /\.(css|less)$/,
+        use: [
+          'style-loader',
+          'css-loader',
+          {
+            loader: 'less-loader',
+            options: {
+              javascriptEnabled: true
+            }
+          }
+        ]
+      }
     ]
   },
   devtool: 'eval-source-map',
@@ -58,7 +76,11 @@ const config = {
     }),
     new webpack.NamedModulesPlugin(),
     new webpack.HotModuleReplacementPlugin(),
-    // 把类型检查和webpack打包分开来
+    // 创建一个在编译时可以配置的全局常量
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify('development')
+    }),
+    // 把类型检查和webpack编译分开来
     new ForkTsCheckerWebpackPlugin({
       async: false,
       watch: '../client',
