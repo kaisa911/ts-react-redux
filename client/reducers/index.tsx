@@ -1,10 +1,10 @@
 // import { routerReducer } from 'react-router-redux';
 import { combineReducers } from 'redux';
-import demo from './demo';
+import { enthusiasm } from './demo';
 
-console.log(typeof demo);
+console.log(typeof enthusiasm);
 const reducers = combineReducers({
-  demo
+  enthusiasm
 });
 
 export default reducers;
